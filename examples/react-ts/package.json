@@ -20,6 +20,7 @@
     "@storybook/addon-essentials": "^6.4.0",
     "@storybook/react": "^6.4.0",
     "storybook-builder-vite": "workspace:*",
+    "storybook-builder-vite-react": "workspace:*",
     "typescript": "^4.5.4",
     "vite": "2.7.0"
   }
