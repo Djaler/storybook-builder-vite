@@ -16,11 +16,7 @@
     "lint-ci:prettier": "prettier . --check",
     "lint-ci:eslint": "eslint \"**/*.{ts,tsx,js,jsx,mjs,cjs}\" --max-warnings=0",
     "example": "NODE_OPTIONS=--enable-source-maps yarn workspace example-${NAME:-vue} storybook",
-    "example:react": "NAME=react yarn example",
-    "example:react-ts": "NAME=react-ts yarn example",
-    "example:svelte": "NAME=svelte yarn example",
-    "example:vue": "NAME=vue yarn example",
-    "example:workspaces": "NAME=workspaces yarn example"
+    "example:vue": "NAME=vue yarn example"
   },
   "workspaces": [
     "examples/*",
