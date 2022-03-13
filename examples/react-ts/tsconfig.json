@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.json",
-  "compilerOptions": {
-    "baseUrl": ".",
-    "jsx": "react-jsx",
-    "types": []
-  },
-  "include": ["stories/**/*.tsx", "./defs.d.ts"]
-}
