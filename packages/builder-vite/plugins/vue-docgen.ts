@@ -11,7 +11,7 @@ export function vueDocgen(): Plugin {
         const metaData = await parse(id);
         const metaSource = JSON.stringify(metaData);
         const s = new MagicString(src);
-        s.append(`;_sfc_main.__docgenInfo = ${metaSource}`);
+        s.append(`;__component__.options.__docgenInfo = ${metaSource}`);
 
         return {
           code: s.toString(),
