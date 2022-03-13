@@ -1,7 +1,7 @@
 {
-  "name": "@storybook/builder-vite",
+  "name": "storybook-builder-vite-vue2",
   "version": "0.2.0",
-  "description": "A plugin to run and build Storybooks with Vite",
+  "description": "A plugin to run and build Vue 2 Storybooks with Vite",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Eirik Sletteberg",
