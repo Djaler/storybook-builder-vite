@@ -63,7 +63,5 @@ export default {
       type: Object,
     },
   },
-
-  emits: ['login', 'logout', 'createAccount'],
 };
 </script>

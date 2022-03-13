@@ -1,12 +1,16 @@
 module.exports = {
-  framework: '@storybook/vue3',
+  framework: '@storybook/vue',
   stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx)'],
-  addons: ['@storybook/addon-links', '@storybook/addon-essentials'],
+  addons: ['@storybook/addon-essentials'],
   core: {
     builder: 'storybook-builder-vite',
   },
   async viteFinal(config, { configType }) {
     // customize the Vite config here
+
+    // https://github.com/storybookjs/storybook/issues/10887#issuecomment-901109891
+    config.resolve.dedupe = ['@storybook/client-api'];
+
     return config;
   },
 };
