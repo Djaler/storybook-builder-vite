@@ -1,3 +1,7 @@
+import { withVuetify } from './addon-vuetify';
+import Vue from 'vue';
+import CompositionAPI from '@vue/composition-api';
+
 export const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
@@ -8,3 +12,7 @@ export const parameters = {
     },
   },
 };
+
+export const decorators = [withVuetify];
+
+Vue.use(CompositionAPI);

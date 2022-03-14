@@ -1,12 +1,14 @@
 <template>
-  <button type="button" :class="classes" @click="onClick" :style="style">
+  <v-btn @click="onClick"
+         :color="primary ? 'primary' : ''"
+         :small="size === 'small'"
+         :large="size === 'large'"
+  >
     {{ label }}
-  </button>
+  </v-btn>
 </template>
 
 <script>
-import './button.css';
-
 export default {
   name: 'my-button',
 
@@ -36,30 +38,8 @@ export default {
         return ['small', 'medium', 'large'].indexOf(value) !== -1;
       },
     },
-
-    /**
-     * The background colour of the button
-     */
-    backgroundColor: {
-      type: String,
-    },
   },
 
-  computed: {
-    classes() {
-      return {
-        'storybook-button': true,
-        'storybook-button--primary': this.primary,
-        'storybook-button--secondary': !this.primary,
-        [`storybook-button--${this.size || 'medium'}`]: true,
-      };
-    },
-    style() {
-      return {
-        backgroundColor: this.backgroundColor,
-      };
-    },
-  },
   methods: {
     onClick() {
       this.$emit('click');
