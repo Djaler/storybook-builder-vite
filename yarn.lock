@@ -16043,9 +16043,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook-builder-vite-parent@workspace:.":
+"storybook-builder-vite-vue2-parent@workspace:.":
   version: 0.0.0-use.local
-  resolution: "storybook-builder-vite-parent@workspace:."
+  resolution: "storybook-builder-vite-vue2-parent@workspace:."
   dependencies:
     "@typescript-eslint/eslint-plugin": ^5.9.0
     "@typescript-eslint/parser": ^5.9.0

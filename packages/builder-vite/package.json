@@ -8,10 +8,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/builder-vite.git",
+    "url": "https://github.com/djaler/storybook-builder-vite-vue2.git",
     "directory": "packages/builder-vite"
   },
-  "homepage": "https://github.com/storybookjs/builder-vite/#readme",
+  "homepage": "https://github.com/djaler/storybook-builder-vite-vue2/#readme",
   "dependencies": {
     "@storybook/core-common": "^6.4.3",
     "@storybook/mdx1-csf": "^0.0.4",
