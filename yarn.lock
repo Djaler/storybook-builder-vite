@@ -8153,7 +8153,7 @@ __metadata:
   dependencies:
     "@storybook/addon-essentials": ^6.4.14
     "@storybook/vue": ^6.4.14
-    storybook-builder-vite: "workspace:*"
+    storybook-builder-vite-vue2: "workspace:*"
     vite: 2.7.0
     vite-plugin-vue2: ^1.9.3
     vue: ^2.6.14
@@ -14111,9 +14111,9 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
-"storybook-builder-vite-parent@workspace:.":
+"storybook-builder-vite-vue2-parent@workspace:.":
   version: 0.0.0-use.local
-  resolution: "storybook-builder-vite-parent@workspace:."
+  resolution: "storybook-builder-vite-vue2-parent@workspace:."
   dependencies:
     "@types/node": ^16.0.0
     "@typescript-eslint/eslint-plugin": ^5.9.0
@@ -14127,9 +14127,9 @@ fsevents@^1.2.7:
   languageName: unknown
   linkType: soft
 
-"storybook-builder-vite@workspace:*, storybook-builder-vite@workspace:packages/storybook-builder-vite":
+"storybook-builder-vite-vue2@workspace:*, storybook-builder-vite-vue2@workspace:packages/storybook-builder-vite":
   version: 0.0.0-use.local
-  resolution: "storybook-builder-vite@workspace:packages/storybook-builder-vite"
+  resolution: "storybook-builder-vite-vue2@workspace:packages/storybook-builder-vite"
   dependencies:
     "@mdx-js/mdx": ^1.6.22
     "@storybook/csf-tools": ^6.3.3

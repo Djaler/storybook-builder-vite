@@ -1,5 +1,5 @@
 {
-  "name": "storybook-builder-vite",
+  "name": "storybook-builder-vite-vue2",
   "version": "0.1.18",
   "description": "An experimental plugin to run and build Storybooks with Vite",
   "main": "dist/index.js",
@@ -8,10 +8,10 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/eirslett/storybook-builder-vite.git",
+    "url": "https://github.com/djaler/storybook-builder-vite-vue2.git",
     "directory": "package/storybook-builder-vite"
   },
-  "homepage": "https://github.com/eirslett/storybook-builder-vite/#readme",
+  "homepage": "https://github.com/djaler/storybook-builder-vite-vue2/#readme",
   "dependencies": {
     "@mdx-js/mdx": "^1.6.22",
     "@storybook/csf-tools": "^6.3.3",

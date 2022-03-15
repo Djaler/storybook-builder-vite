@@ -1,4 +1,4 @@
-# Storybook builder for Vite
+# Storybook builder for Vite and Vue 2
 
 Requirements:
 
@@ -19,19 +19,19 @@ Please read the [How to contribute](/CONTRIBUTING.md) guide.
 ### Installation
 
 ```bash
-npm install storybook-builder-vite --save-dev
+npm install storybook-builder-vite-vue2 --save-dev
 ```
 
 or
 
 ```bash
-yarn add --dev storybook-builder-vite
+yarn add --dev storybook-builder-vite-vue2
 ```
 
 ### Usage
 
 In your `main.js` configuration file,
-set `core: { builder: "storybook-builder-vite" }`.
+set `core: { builder: "storybook-builder-vite-vue2" }`.
 
 > For autoreload of stories to work, they need to have `.stories.tsx` file suffix.
 > See also [#53](https://github.com/eirslett/storybook-builder-vite/pull/53)
@@ -66,43 +66,21 @@ The `configType` variable will be either `"DEVELOPMENT"` or `"PRODUCTION"`.
 
 The function should return the updated Vite configuration.
 
-### Svelte Customization
-
-When using this builder with Svelte, your `.storybook/main.js` (or equivalent)
-can contain a `svelteOptions` object to pass custom options to
-[`vite-plugin-svelte`](https://github.com/sveltejs/vite-plugin-svelte/tree/main/packages/vite-plugin-svelte):
-
-```javascript
-const preprocess = require('svelte-preprocess');
-
-module.exports = {
-  svelteOptions: {
-    preprocess: preprocess({
-      typescript: true,
-      postcss: true,
-      sourceMap: true,
-    }),
-  },
-};
-```
-
 ## Note about working directory
 
 The builder will by default enable Vite's [server.fs.strict](https://vitejs.dev/config/#server-fs-strict)
 option, for increased security. The default project `root` is set to the parent directory of the
 storybook configuration directory. This can be overridden in viteFinal.
 
-### Getting started with React, Vite and Storybook (on a new project)
+### Getting started with Vue2 Vite project
 
 ```
-npm init @vitejs/app vite-react-app --template react && cd vite-react-app
-npm install # or yarn
-npx sb@next init --builder storybook-builder-vite && npm run storybook
+npx sb@next init --builder storybook-builder-vite-vue2 && npm run storybook
 ```
 
 ## Known issues
 
-- HMR: saving a story file does not hot-module-reload. In svelte, the page is not reloaded either (https://github.com/eirslett/storybook-builder-vite/issues/209). HMR should work when saving component files.
+- HMR: saving a story file does not hot-module-reload. HMR should work when saving component files.
 - Prebundling: Vite restarts if it detects new dependencies which it did not know about and needs to pre-bundle. This breaks within storybook, with confusing error messages. If you see a message in your terminal like `[vite] new dependencies found:`, please add those dependencies to your `optimizeDeps.include` in `viteFinal`. E.g. `config.optimizeDeps.include = [...(config.optimizeDeps?.include ?? []), "storybook-dark-mode"],`.
 - MDX pages are broken when emotion 11 is installed: Adding the configuration [here](https://github.com/eirslett/storybook-builder-vite/issues/219#issuecomment-1023666193) should fix this.
 
@@ -113,7 +91,7 @@ Contributions are welcome!
 ### About this codebase
 
 The code is a monorepo with the core `storybook-builder-vite` package,
-and examples (like `packages/example-react`) to test the builder implementation with.
+and examples (`examples/vue`) to test the builder implementation with.
 
 Similar to the main storybook monorepo, you need yarn , because the project is organized as yarn workspaces.
 This lets you write new code in the core builder package, and instantly use them from

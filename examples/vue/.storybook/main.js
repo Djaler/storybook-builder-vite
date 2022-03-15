@@ -3,7 +3,7 @@ module.exports = {
   stories: ['../stories/**/*.stories.mdx', '../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-essentials'],
   core: {
-    builder: 'storybook-builder-vite',
+    builder: 'storybook-builder-vite-vue2',
   },
   async viteFinal(config, { configType }) {
     // customize the Vite config here

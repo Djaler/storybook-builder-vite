@@ -16,7 +16,7 @@
   "devDependencies": {
     "@storybook/addon-essentials": "^6.4.14",
     "@storybook/vue": "^6.4.14",
-    "storybook-builder-vite": "workspace:*",
+    "storybook-builder-vite-vue2": "workspace:*",
     "vite": "2.7.0",
     "vite-plugin-vue2": "^1.9.3",
     "vue-loader": "^15.9.8",
