@@ -17,10 +17,18 @@ export type ViteBuilder = Builder<UserConfig, ViteStats>;
 
 function iframeMiddleware(options: ExtendedOptions, server: ViteDevServer): RequestHandler {
   return async (req, res, next) => {
-    if (!req.url.match(/^\/iframe.html($|\?)/)) {
+    if (!req.url.match(/^\/iframe\.html($|\?)/)) {
       next();
       return;
     }
+
+    // We need to handle `html-proxy` params for style tag HMR https://github.com/eirslett/storybook-builder-vite/issues/266#issuecomment-1055677865
+    // e.g. /iframe.html?html-proxy&index=0.css
+    if (req.query['html-proxy'] !== undefined) {
+      next();
+      return;
+    }
+
     const indexHtml = fs.readFileSync(path.resolve(__dirname, '..', 'input', 'iframe.html'), 'utf-8');
     const generated = await transformIframeHtml(indexHtml, options);
     const transformed = await server.transformIndexHtml('/iframe.html', generated);
@@ -42,9 +50,9 @@ export const start: ViteBuilder['start'] = async ({ startTime, options, router, 
   router.use(await iframeMiddleware(options as ExtendedOptions, server));
   router.use(server.middlewares);
 
-  function bail(e?: Error) {
+  async function bail(e?: Error): Promise<void> {
     try {
-      return server.close();
+      return await server.close();
     } catch (err) {
       console.warn('unable to close vite server');
     }
