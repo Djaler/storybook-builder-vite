@@ -1,6 +1,6 @@
 {
   "name": "storybook-builder-vite-vue2-parent",
-  "version": "0.1.21",
+  "version": "0.1.22",
   "description": "An experimental plugin to run and build Storybooks with Vite and Vue 2",
   "license": "MIT",
   "engines": {
