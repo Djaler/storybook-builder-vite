@@ -9,7 +9,7 @@ export function vueDocgen() {
         const metaData = await parse(id);
         const metaSource = JSON.stringify(metaData);
 
-        return `${src};__component__.options.__docgenInfo = ${metaSource}`;
+        return `${src};__component__.exports.__docgenInfo = ${metaSource}`;
       }
     },
   };
