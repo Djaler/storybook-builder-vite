@@ -10,6 +10,7 @@
     "skipLibCheck": true,
     "esModuleInterop": true,
     "resolveJsonModule": true,
-    "types": ["@types/node"]
+    "types": ["@types/node"],
+    "experimentalDecorators": true
   }
 }
