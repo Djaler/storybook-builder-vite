@@ -1,6 +1,6 @@
 {
   "name": "storybook-builder-vite-vue2",
-  "version": "0.1.22",
+  "version": "0.1.23",
   "description": "An experimental plugin to run and build Storybooks with Vite",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
@@ -29,5 +29,8 @@
   "peerDependencies": {
     "@storybook/core-common": "^6.4.3",
     "vite": ">=2.6.7"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }
