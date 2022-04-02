@@ -8428,6 +8428,29 @@ __metadata:
   languageName: node
   linkType: hard
 
+"example-class-component@workspace:examples/class-component":
+  version: 0.0.0-use.local
+  resolution: "example-class-component@workspace:examples/class-component"
+  dependencies:
+    "@storybook/addon-essentials": ^6.5.0-alpha.49
+    "@storybook/test-runner": ^0.0.4
+    "@storybook/vue": ^6.5.0-alpha.49
+    http-server: ^14.1.0
+    jest: ^27.5.1
+    npm-run-all: ^4.1.5
+    storybook-builder-vite-vue2: "workspace:*"
+    typescript: 4.6.3
+    vite: 2.9.0
+    vite-plugin-vue2: ^1.9.3
+    vue: ^2.6.14
+    vue-class-component: 7.2.6
+    vue-loader: ^15.9.8
+    vue-property-decorator: 9.1.2
+    vue-template-compiler: ^2.6.14
+    wait-on: ^6.0.1
+  languageName: unknown
+  linkType: soft
+
 "example-vue@workspace:examples/vue":
   version: 0.0.0-use.local
   resolution: "example-vue@workspace:examples/vue"
@@ -16903,6 +16926,16 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"typescript@npm:4.6.3":
+  version: 4.6.3
+  resolution: "typescript@npm:4.6.3"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: 255bb26c8cb846ca689dd1c3a56587af4f69055907aa2c154796ea28ee0dea871535b1c78f85a6212c77f2657843a269c3a742d09d81495b97b914bf7920415b
+  languageName: node
+  linkType: hard
+
 "typescript@npm:^4.5.4":
   version: 4.5.4
   resolution: "typescript@npm:4.5.4"
@@ -16910,6 +16943,16 @@ fsevents@^1.2.7:
     tsc: bin/tsc
     tsserver: bin/tsserver
   checksum: 59f3243f9cd6fe3161e6150ff6bf795fc843b4234a655dbd938a310515e0d61afd1ac942799e7415e4334255e41c2c49b7dd5d9fd38a17acd25a6779ca7e0961
+  languageName: node
+  linkType: hard
+
+"typescript@patch:typescript@4.6.3#~builtin<compat/typescript>":
+  version: 4.6.3
+  resolution: "typescript@patch:typescript@npm%3A4.6.3#~builtin<compat/typescript>::version=4.6.3&hash=493e53"
+  bin:
+    tsc: bin/tsc
+    tsserver: bin/tsserver
+  checksum: fe6bdc1afb2f145ddb7b0a3a31f96352209f6a5704d97f038414ea22ff9d8dd42f32cfb6652e30458d7d958d2d4e85de2df11c574899c6f750a6b3c0e90a3a76
   languageName: node
   linkType: hard
 
@@ -17475,6 +17518,15 @@ fsevents@^1.2.7:
   languageName: node
   linkType: hard
 
+"vue-class-component@npm:7.2.6":
+  version: 7.2.6
+  resolution: "vue-class-component@npm:7.2.6"
+  peerDependencies:
+    vue: ^2.0.0
+  checksum: 3b4e1de0328b2af0216cbbf125c4ac3da5701c9585713ee634f887092f4faaa1ff9589130ec9fc0b3240d7709217eb8d03e9c0e27fe80768d2883ffe5faf9a14
+  languageName: node
+  linkType: hard
+
 "vue-docgen-api@npm:^4.40.0":
   version: 4.40.0
   resolution: "vue-docgen-api@npm:4.40.0"
@@ -17583,6 +17635,16 @@ fsevents@^1.2.7:
     vue-template-compiler:
       optional: true
   checksum: ca4c99b2617b207eb96925b889669f8bfecb6e82d22ed59220b324b6caaccc38bf3bc1d7961353155ab19ec71b791e887e8a06109ec719e8a791a2b00a2420bc
+  languageName: node
+  linkType: hard
+
+"vue-property-decorator@npm:9.1.2":
+  version: 9.1.2
+  resolution: "vue-property-decorator@npm:9.1.2"
+  peerDependencies:
+    vue: "*"
+    vue-class-component: "*"
+  checksum: 0155127c3e31bde1c6da13116793a215d60f445b5338e5f2717e0090556f698284d555b7c3f3e76c651c82880f1560d6f8d992f183c50a9be09ce7fe6d1f5300
   languageName: node
   linkType: hard
 
