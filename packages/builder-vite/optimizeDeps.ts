@@ -1,6 +1,7 @@
 import * as path from 'path';
 import { normalizePath, resolveConfig, UserConfig } from 'vite';
 import { listStories } from './list-stories';
+import semver from 'semver';
 
 import type { ExtendedOptions } from './types';
 
@@ -10,17 +11,7 @@ const INCLUDE_CANDIDATES = [
   '@emotion/is-prop-valid',
   '@emotion/styled',
   '@mdx-js/react',
-  '@storybook/addon-docs > acorn-jsx',
-  '@storybook/addon-docs',
-  '@storybook/addons',
-  '@storybook/channel-postmessage',
-  '@storybook/channel-websocket',
-  '@storybook/client-api',
-  '@storybook/client-logger',
-  '@storybook/core/client',
   '@storybook/csf',
-  '@storybook/preview-web',
-  '@storybook/vue',
   'acorn-jsx',
   'acorn-walk',
   'acorn',
@@ -112,11 +103,35 @@ export async function getOptimizeDeps(
   const resolve = resolvedConfig.createResolver({ asSrc: false });
   const include = await asyncFilter(INCLUDE_CANDIDATES, async (id) => Boolean(await resolve(id)));
 
+  // We can exclude some packages which otherwise are optimized
+  const exclude = [
+    '@storybook/addon-docs',
+    '@storybook/client-api',
+    '@storybook/client-logger',
+    '@storybook/preview-web',
+    '@storybook/channel-postmessage',
+    '@storybook/channel-websocket',
+    '@storybook/addons',
+  ];
+
+  // Depending on the user's storybook version, we can also exclude the framework from prebundling
+  // See https://github.com/storybookjs/storybook/pull/17875
+  const { frameworkPath, framework } = options;
+  const frameworkPackageName = frameworkPath || `@storybook/${framework}`;
+  const sbVersion: string | undefined = (await import(`${frameworkPackageName}/package.json`))?.version;
+  if (sbVersion && semver.gte(sbVersion, '6.5.0-alpha.58', { includePrerelease: true })) {
+    exclude.push(frameworkPackageName);
+  } else {
+    include.push(frameworkPackageName);
+  }
+
   return {
     // We don't need to resolve the glob since vite supports globs for entries.
     entries: stories,
     // We need Vite to precompile these dependencies, because they contain non-ESM code that would break
     // if we served it directly to the browser.
     include,
+    // In some cases we need to prevent deps from being pre-bundled
+    exclude,
   };
 }

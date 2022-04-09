@@ -1,14 +1,14 @@
 {
   "name": "storybook-builder-vite-vue2-parent",
-  "version": "0.1.23",
+  "version": "0.1.26",
   "description": "An experimental plugin to run and build Storybooks with Vite and Vue 2",
   "license": "MIT",
   "engines": {
     "node": ">=16.0.0"
   },
   "scripts": {
-    "build-examples": "yarn workspaces foreach --include 'example-*' -p run build-storybook",
-    "test-ci": "yarn workspaces foreach -p run test-ci",
+    "build-examples": "yarn workspaces foreach -v --include 'example-*' -p run build-storybook",
+    "test-ci": "yarn workspaces foreach -v -p run test-ci",
     "start": "cd packages/builder-vite && tsc -w",
     "prepublish": "cd packages/builder-vite && tsc",
     "lint": "yarn lint:prettier && yarn lint:eslint",
@@ -20,6 +20,9 @@
     "example": "NODE_OPTIONS=--enable-source-maps yarn workspace example-${NAME:-vue} storybook",
     "example:vue": "NAME=vue yarn example",
     "example:class-component": "NAME=class-component yarn example"
+  },
+  "resolutions": {
+    "vue-loader": "15.9.8"
   },
   "workspaces": [
     "examples/*",
