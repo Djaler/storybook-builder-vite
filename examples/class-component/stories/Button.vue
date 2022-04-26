@@ -1,10 +1,10 @@
 <template>
-  <button type='button' :class='classes' @click='onClick' :style='style'>
+  <button type="button" :class="classes" @click="onClick" :style="style">
     {{ label }}
   </button>
 </template>
 
-<script lang='ts'>
+<script lang="ts">
 import { Component, Prop, Vue } from 'vue-property-decorator';
 
 import './button.css';
@@ -31,7 +31,7 @@ export default class Button extends Vue {
     type: String,
     validator(value: any): boolean {
       return Object.values(Size).includes(value);
-    }
+    },
   })
   size!: Size;
 
