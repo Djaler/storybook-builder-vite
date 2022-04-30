@@ -2,7 +2,18 @@
 
 Build your stories with [vite](https://vitejs.dev/) for fast startup times and near-instant HMR.
 
-### Installation
+# Table of Contents
+
+- [Installation](#installation)
+- [Usage](#usage)
+  - [Customize Vite Config](#customize-vite-config)
+  - [TypeScript](#typescript)
+  - [Working Directory](#note-about-working-directory)
+- [How to Start with Vue 2 Vite project](#getting-started-with-vue2-vite-project)
+- [Known issues](#known-issues)
+- [Contributing](#contributing)
+
+## Installation
 
 Requirements:
 
@@ -27,7 +38,7 @@ pnpm add --save-dev storybook-builder-vite-vue2
 
 Note: when using `pnpm`, you may need to enable [shamefully-hoist](https://pnpm.io/npmrc#shamefully-hoist), until https://github.com/storybookjs/builder-vite/issues/55 can be fixed.
 
-### Usage
+## Usage
 
 In your `main.js` configuration file,
 set `core: { builder: "storybook-builder-vite-vue2" }`.
@@ -72,13 +83,42 @@ The `configType` variable will be either `"DEVELOPMENT"` or `"PRODUCTION"`.
 
 The function should return the updated Vite configuration.
 
-## Note about working directory
+### TypeScript
+
+Configure your `.storybook/main.ts` to use TypeScript:
+
+```typescript
+import type { StorybookViteConfig } from '@storybook/builder-vite';
+
+const config: StorybookViteConfig = {
+  // other storybook options...,
+  async viteFinal(config, options) {
+    // modify and return config
+  },
+};
+
+export default config;
+```
+
+Or alternatively, you can use named exports:
+
+```typescript
+import type { ViteFinal } from '@storybook/builder-vite';
+
+export const viteFinal: ViteFinal = async (config, options) => {
+  // modify and return config
+};
+```
+
+See [Customize Vite config](#customize-vite-config) for details about using `viteFinal`.
+
+### Note about working directory
 
 The builder will by default enable Vite's [server.fs.strict](https://vitejs.dev/config/#server-fs-strict)
 option, for increased security. The default project `root` is set to the parent directory of the
 storybook configuration directory. This can be overridden in viteFinal.
 
-### Getting started with Vue2 Vite project
+## Getting started with Vue2 Vite project
 
 ```
 npx sb@next init --builder storybook-builder-vite-vue2 && npm run storybook
@@ -87,7 +127,7 @@ npx sb@next init --builder storybook-builder-vite-vue2 && npm run storybook
 ## Known issues
 
 - HMR: saving a story file does not hot-module-reload, a full reload happens instead. HMR works correctly when saving component files.
-- Prebundling: Vite restarts if it detects new dependencies which it did not know about and needs to pre-bundle. This breaks within storybook, with confusing error messages. If you see a message in your terminal like `[vite] new dependencies found:`, please add those dependencies to your `optimizeDeps.include` in `viteFinal`. E.g. `config.optimizeDeps.include = [...(config.optimizeDeps?.include ?? []), "storybook-dark-mode"],`. Vite 2.9.0 may improve this behavior.
+- Prebundling: Vite restarts if it detects new dependencies which it did not know about and needs to pre-bundle. This breaks within storybook, with confusing error messages. If you see a message in your terminal like `[vite] new dependencies found:`, please add those dependencies to your `optimizeDeps.include` in `viteFinal`. E.g. `config.optimizeDeps.include = [...(config.optimizeDeps?.include ?? []), "storybook-dark-mode"],`. Vite 2.9.0+ may improve this behavior.
 
 ## Contributing
 
