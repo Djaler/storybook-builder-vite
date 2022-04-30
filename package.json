@@ -20,8 +20,7 @@
     "lint-ci:prettier": "prettier . --check",
     "lint-ci:eslint": "eslint \"**/*.{ts,tsx,js,jsx,mjs,cjs}\" --max-warnings=0",
     "example": "NODE_OPTIONS=--enable-source-maps yarn workspace example-${NAME:-vue} storybook",
-    "example:vue": "NAME=vue yarn example",
-    "example:class-component": "NAME=class-component yarn example"
+    "example:vue": "NAME=vue yarn example"
   },
   "resolutions": {
     "vue-loader": "16.4.1"
